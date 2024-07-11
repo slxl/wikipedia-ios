@@ -1939,6 +1939,11 @@ class PlacesViewController: ViewController, UISearchBarDelegate, ArticlePopoverV
         recenterOnUserLocation(self)
     }
     
+    @objc public func showNearbyArticles(_ location: CLLocation) {
+        panMapToNextLocationUpdate = false
+        zoomAndPanMapView(toLocation: location)
+    }
+    
     @objc public func showArticleURL(_ articleURL: URL) {
         guard let article = dataStore.fetchArticle(with: articleURL), let title = articleURL.wmf_title,
             view != nil else { // force view instantiation
