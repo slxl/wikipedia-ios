@@ -769,6 +769,8 @@
 		67BF28582C3DECA500C9F5DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BF28572C3DECA500C9F5DE /* SceneDelegate.swift */; };
 		67BF28592C3DECA500C9F5DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BF28572C3DECA500C9F5DE /* SceneDelegate.swift */; };
 		67BF285A2C3DECA500C9F5DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BF28572C3DECA500C9F5DE /* SceneDelegate.swift */; };
+		FRA001032C3DECA500C9F501 /* DeepLinkAppRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = FRA001012C3DECA500C9F501 /* DeepLinkAppRoute.swift */; };
+		FRA001042C3DECA500C9F502 /* DeepLinkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FRA001022C3DECA500C9F502 /* DeepLinkRouter.swift */; };
 		67C169A22BEC0B9900F09043 /* wikipedia-magicwords in Resources */ = {isa = PBXBuildFile; fileRef = 67C169A12BEC0B9900F09043 /* wikipedia-magicwords */; };
 		67C1757628AD4D6000C5ABA4 /* TalkPageDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C1757528AD4D6000C5ABA4 /* TalkPageDataController.swift */; };
 		67C1757728AD4D6000C5ABA4 /* TalkPageDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C1757528AD4D6000C5ABA4 /* TalkPageDataController.swift */; };
@@ -3394,6 +3396,8 @@
 		67BEFFD928AEDF3600606B38 /* WikimediaProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikimediaProject.swift; sourceTree = "<group>"; };
 		67BF28532C3DEC5300C9F5DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67BF28572C3DECA500C9F5DE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FRA001012C3DECA500C9F501 /* DeepLinkAppRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkAppRoute.swift; sourceTree = "<group>"; };
+		FRA001022C3DECA500C9F502 /* DeepLinkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkRouter.swift; sourceTree = "<group>"; };
 		67C169A12BEC0B9900F09043 /* wikipedia-magicwords */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "wikipedia-magicwords"; path = "Wikipedia/Code/wikipedia-magicwords"; sourceTree = SOURCE_ROOT; };
 		67C1757528AD4D6000C5ABA4 /* TalkPageDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkPageDataController.swift; sourceTree = "<group>"; };
 		67C6F74D27E2919A00B9C864 /* RemoteNotificationsModelController+TestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemoteNotificationsModelController+TestExtensions.swift"; sourceTree = "<group>"; };
@@ -7219,6 +7223,8 @@
 				BC45D5461C31E0C0007C72F3 /* App View Controller */,
 				67BF28532C3DEC5300C9F5DE /* AppDelegate.swift */,
 				67BF28572C3DECA500C9F5DE /* SceneDelegate.swift */,
+				FRA001012C3DECA500C9F501 /* DeepLinkAppRoute.swift */,
+				FRA001022C3DECA500C9F502 /* DeepLinkRouter.swift */,
 				0EBCA7411C162ECF004F1FD9 /* MWKTitleLanguageController.m */,
 				0EBCA7421C162ECF004F1FD9 /* MWKTitleLanguageController.h */,
 				83A642742226CCF1004A1796 /* SwiftKVOCrashWorkaround.swift */,
@@ -9764,7 +9770,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$SRCROOT/scripts/localization\" \"$SRCROOT\"\n";
+			shellScript = "[ -x \"$SRCROOT/scripts/localization\" ] && \"$SRCROOT/scripts/localization\" \"$SRCROOT\" || true\n";
 			showEnvVarsInLog = 0;
 		};
 		D8B724B41ECF09F700D10836 /* Copy Test Fixtures */ = {
@@ -10312,6 +10318,8 @@
 				FFA0641925A943EB00B9460B /* BasicLogger.swift in Sources */,
 				678D79F6235E599B006161FF /* DiffListContextViewModel.swift in Sources */,
 				67BF28582C3DECA500C9F5DE /* SceneDelegate.swift in Sources */,
+				FRA001032C3DECA500C9F501 /* DeepLinkAppRoute.swift in Sources */,
+				FRA001042C3DECA500C9F502 /* DeepLinkRouter.swift in Sources */,
 				BA7683C21F30C56300A487AA /* ImageDimmingExampleViewController.swift in Sources */,
 				674E8AB92382DEFF0053D206 /* DiffTransformer.swift in Sources */,
 				67A5E657236775C3007749FB /* GlobalUserInfoFetcher.swift in Sources */,

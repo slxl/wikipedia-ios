@@ -60,7 +60,7 @@ import WMFComponents
     }
     
     private func logEvent(activeInterface: ActiveInterface? = nil, action: Action? = nil, actionData: [String: String]? = nil, project: WikimediaProject? = nil) {
-        var actionDataString: String? = nil
+        var actionDataString: String?
         if let actionData {
             actionDataString = ""
             for (key, value) in actionData {

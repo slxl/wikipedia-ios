@@ -3,7 +3,7 @@ import Foundation
 public actor WMFActivityTabDataController {
     public static let shared = WMFActivityTabDataController()
     private let userDefaultsStore = WMFDataEnvironment.current.userDefaultsStore
-    public var historyDataController: WMFHistoryDataController? = nil
+    public var historyDataController: WMFHistoryDataController?
 
     public init() {}
     

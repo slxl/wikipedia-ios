@@ -283,7 +283,7 @@ struct WMFAsyncPageRowSaved: View {
     }
     
     private func tagView(listName: String?, overflowCount: Int?) -> some View {
-        var text: String? = nil
+        var text: String?
         if let listName {
             text = listName
         } else if let overflowCount {
@@ -311,7 +311,7 @@ struct WMFAsyncPageRowSaved: View {
     }
     
     private func getPreviewViewModel(from viewModel: WMFAsyncPageRowSavedViewModel) -> WMFArticlePreviewViewModel {
-        var url: URL? = nil
+        var url: URL?
         if let siteURL = viewModel.project.siteURL {
             var components = URLComponents(url: siteURL, resolvingAgainstBaseURL: false)
             components?.path = "/wiki/\(viewModel.title)"
