@@ -133,7 +133,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         
-        guard let activity = NSUserActivity.wmf_activity(forWikipediaScheme: firstURL) ?? NSUserActivity.wmf_activity(for: firstURL) else {
+        let activity: NSUserActivity?
+        if let route = DeepLinkRouter.parse(firstURL) {
+            switch route {
+            case .places(let lat, let lon, let name):
+                activity = Self.makePlacesActivity(lat: lat, lon: lon, name: name)
+            }
+        } else {
+            activity = NSUserActivity.wmf_activity(forWikipediaScheme: firstURL) ?? NSUserActivity.wmf_activity(for: firstURL)
+        }
+        
+        guard let activity else {
             resumeAppIfNecessary()
             return
         }
@@ -154,7 +164,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     // MARK: Private
-    
+
+    private static let placesActivityType = "org.wikimedia.wikipedia.places"
+    private static let placesUserInfoKeyLat = "WMFPlacesLat"
+    private static let placesUserInfoKeyLon = "WMFPlacesLon"
+    private static let placesUserInfoKeyName = "WMFPlacesName"
+
+    private static func makePlacesActivity(lat: Double, lon: Double, name: String?) -> NSUserActivity {
+        let activity = NSUserActivity(activityType: placesActivityType)
+        activity.title = "Places"
+        var userInfo: [String: Any] = ["WMFPage": "Places", placesUserInfoKeyLat: lat, placesUserInfoKeyLon: lon]
+        if let name, !name.isEmpty {
+            userInfo[placesUserInfoKeyName] = name
+        }
+        activity.userInfo = userInfo
+        return activity
+    }
+
     private var appDelegate: AppDelegate? {
         return UIApplication.shared.delegate as? AppDelegate
     }
