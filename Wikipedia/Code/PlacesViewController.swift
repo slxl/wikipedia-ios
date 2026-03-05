@@ -2088,6 +2088,18 @@ class PlacesViewController: ArticleLocationCollectionViewController, UISearchBar
         currentSearch = PlaceSearch(filter: .top, type: .location, origin: .user, sortStyle: .links, string: nil, region: region, localizedDescription: title, searchResult: searchResult, siteURL: articleURL.wmf_site)
     }
 
+    /// Centers the map on the given coordinates and runs a search there (e.g. for wikipedia://places?lat=&lon=&name= deep link).
+    @objc public func showLocationWithLatitude(_ latitude: Double, longitude: Double, name: String?) {
+        guard view != nil else { return }
+        updateViewModeToMap()
+        let center = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: center, span: span)
+        mapRegion = region
+        let description = (name != nil && !name!.isEmpty) ? name! : WMFLocalizedString("places-search-top-articles", value: "All top articles", comment: "A search suggestion for top articles")
+        currentSearch = PlaceSearch(filter: currentSearchFilter, type: .location, origin: .user, sortStyle: .links, string: nil, region: region, localizedDescription: description, searchResult: nil)
+    }
+
     fileprivate func searchForFirstSearchSuggestion() {
         if !searchSuggestionController.searches[PlaceSearchSuggestionController.completionSection].isEmpty {
             currentSearch = searchSuggestionController.searches[PlaceSearchSuggestionController.completionSection][0]
